@@ -1,0 +1,36 @@
+plugins {
+    id 'java-library'
+    id 'scala'
+    id 'net.neoforged.moddev' version '2.0.148'
+}
+
+version = mod_version
+group = mod_group_id
+
+java {
+    toolchain.languageVersion = JavaLanguageVersion.of(21)
+}
+
+neoForge {
+    version = neo_version
+    runs {
+        client { client() }
+        server { server(); programArgument '--nogui' }
+    }
+    mods {
+        simbiotika { sourceSet sourceSets.main }
+    }
+}
+
+repositories { mavenCentral() }
+
+dependencies {
+    implementation "org.scala-lang:scala3-library_3:${scala3_version}"
+    // Optional Create integration. Set create_version in gradle.properties before enabling.
+    // compileOnly "com.simibubi.create:create-${minecraft_version}:${create_version}:slim"
+}
+
+tasks.withType(ScalaCompile).configureEach {
+    scalaCompileOptions.additionalParameters = ['-Xtarget:21']
+}
+tasks.withType(JavaCompile).configureEach { options.release = 21 }
