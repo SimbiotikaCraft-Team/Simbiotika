@@ -3,7 +3,7 @@ package net.voxilyststudio.simbiotika.client
 import net.minecraft.client.renderer.entity.{EntityRendererProvider, ThrownItemRenderer}
 import net.neoforged.api.distmarker.Dist
 import net.neoforged.bus.api.SubscribeEvent
-import net.neoforged.fml.common.Mod.EventBusSubscriber
+import net.neoforged.fml.common.EventBusSubscriber
 import net.neoforged.neoforge.client.event.EntityRenderersEvent
 import net.voxilyststudio.simbiotika.Simbiotika
 import net.voxilyststudio.simbiotika.entity.SymbioteFragmentEntity

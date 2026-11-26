@@ -12,11 +12,13 @@ object SymbiotePlayerData {
     Codec.STRING.fieldOf("symbiote_id").forGetter((d: SymbiotePlayerData) => d.symbioteId),
     Codec.BOOL.fieldOf("morphed").forGetter((d: SymbiotePlayerData) => d.morphed),
     Codec.BOOL.fieldOf("absorbed_suit").forGetter((d: SymbiotePlayerData) => d.absorbedSuit)
-  ).apply(instance, (id: String, morphed: Boolean, absorbed: Boolean) => SymbiotePlayerData(id, morphed, absorbed)))
+  ).apply(instance, (id: String, morphed: java.lang.Boolean, absorbed: java.lang.Boolean) =>
+    SymbiotePlayerData(id, morphed.booleanValue(), absorbed.booleanValue())))
   val STREAM_CODEC: StreamCodec[RegistryFriendlyByteBuf, SymbiotePlayerData] = StreamCodec.composite(
     ByteBufCodecs.STRING_UTF8, (d: SymbiotePlayerData) => d.symbioteId,
     ByteBufCodecs.BOOL, (d: SymbiotePlayerData) => d.morphed,
     ByteBufCodecs.BOOL, (d: SymbiotePlayerData) => d.absorbedSuit,
-    (id: String, morphed: Boolean, absorbed: Boolean) => SymbiotePlayerData(id, morphed, absorbed)
+    (id: String, morphed: java.lang.Boolean, absorbed: java.lang.Boolean) =>
+      SymbiotePlayerData(id, morphed.booleanValue(), absorbed.booleanValue())
   )
 }

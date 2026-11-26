@@ -8,11 +8,12 @@ import net.minecraft.world.entity.projectile.ItemSupplier
 import net.minecraft.world.item.ItemStack
 import net.minecraft.world.level.Level
 import net.minecraft.server.level.ServerLevel
+import net.voxilyststudio.simbiotika.registry.ModEntities
 import net.voxilyststudio.simbiotika.registry.ModItems
 import net.voxilyststudio.simbiotika.world.GlobalSymbioteSavedData
 
-final class SymbioteFragmentEntity(entityType: EntityType[? <: SymbioteFragmentEntity], level: Level)
-    extends Entity(entityType, level) with ItemSupplier {
+final class SymbioteFragmentEntity(entityType: EntityType[? <: SymbioteFragmentEntity], initialLevel: Level)
+    extends Entity(entityType, initialLevel) with ItemSupplier {
   private var symbioteId = ""
   private var previousCarrierId = ""
   private var swordHits = 0

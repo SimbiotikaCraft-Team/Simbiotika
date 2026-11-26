@@ -3,7 +3,8 @@ package net.voxilyststudio.simbiotika.registry
 import net.minecraft.core.registries.Registries
 import net.minecraft.resources.ResourceLocation
 import net.minecraft.sounds.SoundEvents
-import net.minecraft.util.Util
+import net.minecraft.Util
+import net.minecraft.world.level.block.LiquidBlock
 import net.minecraft.world.level.material.Fluid
 import net.neoforged.bus.api.IEventBus
 import net.neoforged.neoforge.common.SoundActions
@@ -25,6 +26,6 @@ object ModFluids {
   lazy val PROPERTIES: BaseFlowingFluid.Properties = new BaseFlowingFluid.Properties(
     BLACK_GOO_TYPE, BLACK_GOO_SOURCE, BLACK_GOO_FLOWING)
     .bucket(() => ModItems.BLACK_GOO_BUCKET.get())
-    .block(() => ModBlocks.BLACK_GOO_BLOCK.get())
+    .block(() => ModBlocks.BLACK_GOO_BLOCK.get().asInstanceOf[LiquidBlock])
   def register(bus: IEventBus): Unit = { TYPES.register(bus); FLUIDS.register(bus) }
 }

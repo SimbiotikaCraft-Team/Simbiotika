@@ -10,6 +10,6 @@ import net.voxilyststudio.simbiotika.Simbiotika
 object ModBlocks {
   private val BLOCKS = DeferredRegister.create(Registries.BLOCK, Simbiotika.ModId)
   val BLACK_GOO_BLOCK = BLOCKS.register("black_goo", () => new LiquidBlock(
-    () => ModFluids.BLACK_GOO_SOURCE.get(), BlockBehaviour.Properties.of().noCollission().strength(100.0F).replaceable()))
+    ModFluids.BLACK_GOO_SOURCE.get(), BlockBehaviour.Properties.of().noCollission().strength(100.0F).replaceable()))
   def register(bus: IEventBus): Unit = BLOCKS.register(bus)
 }
